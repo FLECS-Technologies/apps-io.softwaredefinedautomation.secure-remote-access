@@ -1,37 +1,21 @@
 {
     "$schema": "https://raw.githubusercontent.com/FLECS-Technologies/app-sdk/main/manifest.schema.json",
     "_schemaVersion": "2.0.0",
-    "app": "",
+    "app": "io.softwaredefinedautomation.secure-remote-access",
     "version": "##VERSION##",
     "revision": "0",
-    "image": "flecs.azurecr.io/",
+    "image": "flecs.azurecr.io/io.softwaredefinedautomation.secure-remote-access",
     "multiInstance": false,
-    "editor": "",
-    "args": [
-        "--launch-arg-1",
-        "--launch-arg-2=8000"
+    "editor": ":8186",
+   "capabilities": [
+        "NET_ADMIN"
     ],
-    "capabilities": [],
-    "conffiles": [
-        "default.conf:/etc/my-app/default.conf",
-        "default.conf:/etc/my-app/default.conf:ro",
-        "default.conf:/etc/my-app/default.conf:rw"
-    ],
-    "devices": [
-        "/dev/net/tun"
-    ],
-    "env": [
-        "MY_ENV=value"
-    ],
+    "hostname": "sdagateway",
+    "interactive": false,
     "ports": [
-        "12345:12345"
+        "8186:8186"
     ],
     "volumes": [
-        "my-app-etc:/etc/my-app",
-        "/var/lib/my-app:/var/lib/my-app"
-    ],
-    "labels": [
-        "org.my.label",
-        "org.my.label-with-value=Some custom label value"
+        "sda-gateway:/usr/local/share/sda-gateway"
     ]
 }
